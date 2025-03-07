@@ -1,0 +1,26 @@
+.row-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.row-guess {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.per-character {
+  border: 1px solid black;
+  height: 80px;
+  width: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30px;
+}
