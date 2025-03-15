@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./GuessInput.css";
 
-const GuessInput = ({ getInput }) => {
+const GuessInput = ({ getInput, disabled }) => {
   const [inputWord, setInputWord] = useState();
 
   return (
@@ -12,8 +12,6 @@ const GuessInput = ({ getInput }) => {
         onSubmit={(e) => {
           e.preventDefault();
           if (inputWord.length !== 5) return;
-
-          console.log("Input:", inputWord);
           getInput(inputWord);
 
           setInputWord("");
@@ -25,6 +23,7 @@ const GuessInput = ({ getInput }) => {
           className="input-box"
           value={inputWord}
           maxLength={5}
+          disabled={disabled}
           onChange={(e) => {
             setInputWord(e.target.value.toUpperCase());
           }}
