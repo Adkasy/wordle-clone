@@ -5,7 +5,7 @@ const Keyboard = ({ letterStatus, onKeyPress }) => {
   const keyboardRows = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
     ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-    ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'BACKSPACE']
+    ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
   ];
 
   const handleKeyClick = (key) => {
@@ -18,12 +18,12 @@ const Keyboard = ({ letterStatus, onKeyPress }) => {
         <div className="keyboard-row" key={rowIndex}>
           {row.map((key) => {
             const status = letterStatus[key] || '';
-            const displayKey = key === 'BACKSPACE' ? '⌫' : key;
+            const displayKey = key;
             
             return (
               <button
                 key={key}
-                className={`keyboard-key ${status} ${key.length > 1 ? 'keyboard-key-wide' : ''}`}
+                className={`keyboard-key ${status}`}
                 onClick={() => handleKeyClick(key)}
               >
                 {displayKey}

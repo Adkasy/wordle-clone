@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 100%;
-    max-width: 500px;
 }
 
 .keyboard-row {
@@ -18,8 +17,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 50px;
-    height: 50px;
+    min-width: 65px;
+    height: 65px;
     margin: 0 3px;
     border-radius: 4px;
     font-weight: bold;
@@ -32,7 +31,7 @@
 }
 
 .keyboard-key-wide {
-    min-width: 95px;
+    min-width: 125px;
     font-size: 12.5px;
 }
 
@@ -42,12 +41,12 @@
     color: white;
 }
 
-.keyboard-key.present {
+.keyboard-key.misplaced {
     background-color: #c9b458;
     color: white;
 }
 
-.keyboard-key.absent {
+.keyboard-key.incorrect {
     background-color: #787c7e;
     color: white;
 }

@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  margin-top: 30px;
 }
 
 .row-guess {
@@ -14,7 +12,8 @@
 }
 
 .per-character {
-  border: 1px solid black;
+  border: 1px solid rgb(208, 208, 208);
+  background-color: rgb(231, 231, 231);
   height: 80px;
   width: 80px;
 
@@ -23,22 +22,23 @@
   align-items: center;
 
   font-size: 30px;
+  border-radius: 4px;
 }
 
 .correct {
-  background-color: #6aaa64; /* Hijau */
+  background-color: #6aaa64;
   color: white;
   border-color: #6aaa64;
 }
 
 .misplaced {
-  background-color: #c9b458; /* Kuning */
+  background-color: #c9b458;
   color: white;
   border-color: #c9b458;
 }
 
 .incorrect {
-  background-color: #e83a3a; /* Merah */
+  background-color: #e83a3a;
   color: white;
   border-color: #e83a3a;
 }

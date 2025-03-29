@@ -2,17 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
 }
 
 .input-box {
-  width: 500px;
+  width: 450px;
   height: 50px;
-  margin: 0.5rem 0;
-  padding: 0.5rem;
+  padding: 5px;
   font-size: 2rem;
+  font-weight: bold;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  letter-spacing: 2.5px;
+}
+
+.submit-button {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: none;
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  background-color: #e7e7e7;
+}
+
+.submit-button:hover {
+  background-color: #18a4e0;
+  color: rgb(255, 255, 255);
 }
