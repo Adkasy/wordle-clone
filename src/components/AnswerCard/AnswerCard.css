@@ -1,0 +1,45 @@
+.answer-card-container {
+    width: 230px;
+    height: 50px;
+    perspective: 3000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.75s;
+}
+
+.answer-card-container:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.card-front {
+    background-color: brown;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2PX;
+}
+
+.card-back {
+    background-color: darkgreen;
+    color: white;
+    transform: rotateY(180deg);
+}
