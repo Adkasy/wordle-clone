@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-top: 40px; */
     width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
 }
 
 .keyboard-row {
@@ -17,36 +18,72 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 65px;
-    height: 65px;
+    min-width: 44px;
+    height: 58px;
     margin: 0 3px;
-    border-radius: 4px;
-    font-weight: bold;
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
-    background-color: #d3d6da;
-    border: 1px solid rgb(169, 167, 167);
+    background-color: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
     text-transform: uppercase;
-    color: #3a3a40;
-    font-size: 20px;
+    color: var(--color-text);
+    font-size: 16px;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.keyboard-key:hover {
+    background-color: var(--color-border);
+}
+
+.keyboard-key:active {
+    transform: scale(0.95);
 }
 
 .keyboard-key-wide {
-    min-width: 125px;
-    font-size: 12.5px;
+    min-width: 54px;
+    font-size: 11px;
 }
 
 /* Status styles */
 .keyboard-key.correct {
-    background-color: #6aaa64;
+    background-color: var(--color-correct);
+    border-color: var(--color-correct);
     color: white;
 }
 
 .keyboard-key.misplaced {
-    background-color: #c9b458;
+    background-color: var(--color-misplaced);
+    border-color: var(--color-misplaced);
     color: white;
 }
 
 .keyboard-key.incorrect {
-    background-color: #787c7e;
-    color: white;
+    background-color: var(--color-incorrect);
+    border-color: var(--color-incorrect);
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 600px) {
+    .keyboard-container {
+        padding: 0 4px;
+    }
+
+    .keyboard-row {
+        gap: 4px;
+        margin-bottom: 6px;
+    }
+
+    .keyboard-key {
+        flex: 1;
+        min-width: 0;
+        height: 50px;
+        margin: 0;
+        font-size: 15px;
+    }
+
+    .keyboard-key-wide {
+        flex: 1.6;
+        font-size: 10px;
+    }
 }

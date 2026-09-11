@@ -1,76 +1,100 @@
-import React, { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
-import "./NotificationModal.css";
+import React, { useEffect, useState } from "react"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import Modal from "@mui/material/Modal"
+import Button from "@mui/material/Button"
+import "./NotificationModal.css"
 
-export default function BasicModal({ openModal, wordleAnswer,numberOfGuess, isWin }) {
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
+function StatusIcon({ isWin }) {
+	return (
+		<div
+			className={`notification-icon ${isWin ? "notification-icon-win" : "notification-icon-lose"}`}
+		>
+			{isWin ? (
+				<svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+					<path
+						d="M5 13l4 4L19 7"
+						stroke="white"
+						strokeWidth="3"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+					/>
+				</svg>
+			) : (
+				<svg viewBox="0 0 24 24" width="30" height="30" fill="none">
+					<path
+						d="M6 6l12 12M18 6L6 18"
+						stroke="white"
+						strokeWidth="3"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+					/>
+				</svg>
+			)}
+		</div>
+	)
+}
 
-  useEffect(() => {
-    setOpen(openModal);
-  }, [openModal]);
-  
-  function handleReload() {
-    window.location.reload();
-  }
+export default function BasicModal({
+	openModal,
+	wordleAnswer,
+	numberOfGuess,
+	isWin,
+	onPlayAgain,
+}) {
+	const [open, setOpen] = useState(false)
+	const handleClose = () => setOpen(false)
 
-  return (
-    <>
-      <Modal
-        open={open}
-      >
-        <Box className="notification-modal">
-          <Typography
-            variant="h6"
-            style={{
-              fontWeight: "bold"
-            }}
-          >
-            {isWin ?
-              "YEAAY CONGRATULATIONS! 😙" :
-              "OOPS, SORRY... 😥"
-            } 
-          </Typography>
+	useEffect(() => {
+		setOpen(openModal)
+	}, [openModal])
 
-          <Typography
-            id="modal-modal-description"
-            style={{ marginTop: "10px" }}
-          >
-            {isWin ?
-              `Your guess is correct, you managed to guess it in ${numberOfGuess} attempts.` :
-              (
-                <>
-                  You're out of chances, the correct answer is{" "}
-                  <span style={{ backgroundColor: "#18a4e0", color: "white", padding: "1.5px 5px", borderRadius: "4px" }}>
-                    {wordleAnswer}
-                  </span>.
-                </>
-              )
-            }
-          </Typography>
-          
-          <div style={{display: "flex", flexDirection: "row", gap: "25px", marginTop: "20px"}}>            
-            <Button 
-              onClick={handleReload} 
-              variant="contained" 
-              style={{ marginTop: "20px", width: "150px", height: "50px", backgroundColor: "#6aaa64" }}
-            >
-              Play Again
-            </Button> 
-            
-            <Button 
-              onClick={handleClose} 
-              variant="contained" 
-              style={{ marginTop: "20px", width: "150px", height: "50px", backgroundColor: "#e83a3a"}}
-              >
-              Close
-            </Button>      
-          </div>
-        </Box>        
-      </Modal>
-    </>
-  );
+	function handlePlayAgain() {
+		setOpen(false)
+		onPlayAgain()
+	}
+
+	return (
+		<Modal open={open}>
+			<Box className={`notification-modal ${isWin ? "is-win" : "is-lose"}`}>
+				<StatusIcon isWin={isWin} />
+
+				<Typography variant="h6" className="notification-title">
+					{isWin ? "Congratulations!" : "Out of guesses"}
+				</Typography>
+
+				<Typography
+					id="modal-modal-description"
+					className="notification-description"
+				>
+					{isWin ? (
+						`You guessed it in ${numberOfGuess} ${numberOfGuess === 1 ? "attempt" : "attempts"}.`
+					) : (
+						<>
+							The correct answer was{" "}
+							<span className="notification-answer-highlight">
+								{wordleAnswer}
+							</span>
+						</>
+					)}
+				</Typography>
+
+				<div className="notification-actions">
+					<Button
+						onClick={handlePlayAgain}
+						className="notification-button notification-button-primary"
+					>
+						Play Again
+					</Button>
+
+					<Button
+						onClick={handleClose}
+						className="notification-button notification-button-secondary"
+					>
+						Close
+					</Button>
+				</div>
+			</Box>
+		</Modal>
+	)
 }

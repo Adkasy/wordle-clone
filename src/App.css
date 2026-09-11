@@ -2,5 +2,42 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.game-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px 10px;
+}
+
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 25px;
+  width: 100%;
+  max-width: 500px;
+}
+
+@media (max-width: 900px) {
+  .game-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-layout {
+    padding: 16px 14px;
+    gap: 20px;
+  }
+
+  .game-controls {
+    gap: 16px;
+  }
 }
