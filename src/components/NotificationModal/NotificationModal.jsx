@@ -62,7 +62,7 @@ export default function BasicModal({
 				<StatusIcon isWin={isWin} />
 
 				<h2 className="notification-title">
-					{isWin ? "Congratulations!" : "Out of guesses"}
+					{isWin ? "Congratulations!" : "Out of Guesses"}
 				</h2>
 
 				<p className="notification-description">

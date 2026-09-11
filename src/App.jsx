@@ -125,7 +125,7 @@ function App() {
 
 	return (
 		<div className="outermost-container">
-			<Topbar />
+			<Topbar onPlayAgain={handlePlayAgain} />
 
 			<div className="game-layout">
 				<div className="game-board">
