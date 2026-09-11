@@ -1,8 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap");
+
+:root {
+  --color-bg: #0e0f12;
+  --color-surface: #17181c;
+  --color-surface-raised: #1e2025;
+  --color-border: #2a2c32;
+  --color-border-soft: rgba(255, 255, 255, 0.08);
+  --color-border-bright: #565656;
+
+  --color-text: #eef0f3;
+  --color-text-muted: #8a8d96;
+
+  --color-correct: #538d4e;
+  --color-misplaced: #b59f3b;
+  --color-incorrect: #3a3a3c;
+  --color-tile-incorrect: #d64545;
+  --color-accent: #4fb0e8;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Poppins", sans-serif;
+}
+
+.MuiTypography-root,
+.MuiButtonBase-root {
+  font-family: "Poppins", sans-serif !important;
 }
