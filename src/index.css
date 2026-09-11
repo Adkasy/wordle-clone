@@ -29,8 +29,3 @@ body {
   color: var(--color-text);
   font-family: "Poppins", sans-serif;
 }
-
-.MuiTypography-root,
-.MuiButtonBase-root {
-  font-family: "Poppins", sans-serif !important;
-}

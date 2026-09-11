@@ -1,11 +1,18 @@
+.notification-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
 .notification-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 420px;
-  max-width: 90vw;
-  height: auto;
+  max-width: 100%;
   background-color: var(--color-surface-raised);
   padding: 36px 30px 30px;
   display: flex;
@@ -42,17 +49,18 @@
 }
 
 .notification-title {
-  font-weight: 600 !important;
-  font-size: 20px !important;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0;
   text-align: center;
   color: var(--color-text);
 }
 
 .notification-description {
-  margin-top: 8px !important;
+  margin: 8px 0 0;
   text-align: center;
   color: var(--color-text-muted);
-  font-size: 14px !important;
+  font-size: 14px;
 }
 
 .notification-answer-highlight {
@@ -73,14 +81,15 @@
 }
 
 .notification-button {
-  width: 150px !important;
-  height: 46px !important;
-  border-radius: 999px !important;
-  font-weight: 600 !important;
-  text-transform: none !important;
-  letter-spacing: 0.2px !important;
-  box-shadow: none !important;
-  transition: transform 0.15s ease, filter 0.15s ease !important;
+  width: 150px;
+  height: 46px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .notification-button:hover {
@@ -89,19 +98,15 @@
 }
 
 .notification-button-primary {
-  background-color: var(--color-correct) !important;
-  color: white !important;
+  background-color: var(--color-correct);
+  border: none;
+  color: white;
 }
 
 .notification-button-secondary {
-  background-color: transparent !important;
-  color: var(--color-text-muted) !important;
-  border: 1px solid var(--color-border) !important;
-}
-
-.MuiBox-root {
-  outline: none;
-  border: none;
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
 }
 
 @media (max-width: 500px) {

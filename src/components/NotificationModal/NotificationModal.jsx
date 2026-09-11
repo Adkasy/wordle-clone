@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react"
-import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
-import Modal from "@mui/material/Modal"
-import Button from "@mui/material/Button"
 import "./NotificationModal.css"
 
 function StatusIcon({ isWin }) {
@@ -54,19 +50,22 @@ export default function BasicModal({
 		onPlayAgain()
 	}
 
+	if (!open) return null
+
 	return (
-		<Modal open={open}>
-			<Box className={`notification-modal ${isWin ? "is-win" : "is-lose"}`}>
+		<div className="notification-overlay">
+			<div
+				className={`notification-modal ${isWin ? "is-win" : "is-lose"}`}
+				role="dialog"
+				aria-modal="true"
+			>
 				<StatusIcon isWin={isWin} />
 
-				<Typography variant="h6" className="notification-title">
+				<h2 className="notification-title">
 					{isWin ? "Congratulations!" : "Out of guesses"}
-				</Typography>
+				</h2>
 
-				<Typography
-					id="modal-modal-description"
-					className="notification-description"
-				>
+				<p className="notification-description">
 					{isWin ? (
 						`You guessed it in ${numberOfGuess} ${numberOfGuess === 1 ? "attempt" : "attempts"}.`
 					) : (
@@ -77,24 +76,26 @@ export default function BasicModal({
 							</span>
 						</>
 					)}
-				</Typography>
+				</p>
 
 				<div className="notification-actions">
-					<Button
+					<button
+						type="button"
 						onClick={handlePlayAgain}
 						className="notification-button notification-button-primary"
 					>
 						Play Again
-					</Button>
+					</button>
 
-					<Button
+					<button
+						type="button"
 						onClick={handleClose}
 						className="notification-button notification-button-secondary"
 					>
 						Close
-					</Button>
+					</button>
 				</div>
-			</Box>
-		</Modal>
+			</div>
+		</div>
 	)
 }
