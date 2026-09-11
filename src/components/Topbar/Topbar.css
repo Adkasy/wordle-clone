@@ -1,16 +1,20 @@
 .topbar-container {
-  height: auto;
   width: 100%;
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border-soft);
   box-sizing: border-box;
 
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.topbar-brand {
+  grid-column: 2;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
   gap: 12px;
-  padding: 14px 0;
 }
 
 .wordle-logo-badge {
@@ -37,6 +41,31 @@
   color: var(--color-text);
 }
 
+.topbar-restart {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.topbar-restart:hover {
+  color: var(--color-text);
+  border-color: var(--color-highlight);
+}
+
+.topbar-restart:active {
+  transform: rotate(-90deg);
+}
+
 @media (max-width: 600px) {
   .wordle-logo {
     height: 22px;
@@ -46,5 +75,10 @@
   .topbar {
     font-size: 15px;
     letter-spacing: 2px;
+  }
+
+  .topbar-restart {
+    width: 28px;
+    height: 28px;
   }
 }

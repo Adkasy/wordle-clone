@@ -16,12 +16,12 @@
 }
 
 .answer-reveal:hover {
-    border-color: var(--color-accent);
+    border-color: var(--color-highlight);
     color: var(--color-text);
 }
 
 .answer-reveal-word {
-    color: var(--color-accent);
+    color: var(--color-highlight);
     font-weight: 700;
     letter-spacing: 1px;
 }

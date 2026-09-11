@@ -15,7 +15,8 @@
   --color-misplaced: #b59f3b;
   --color-incorrect: #3a3a3c;
   --color-tile-incorrect: #d64545;
-  --color-accent: #4fb0e8;
+  --color-accent: #7a7a7a;
+  --color-highlight: #2893eb;
 }
 
 * {
